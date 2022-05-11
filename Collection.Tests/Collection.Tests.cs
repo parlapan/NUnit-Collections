@@ -428,7 +428,7 @@ namespace Collection.Tests
 
             {
 
-                Assert.That(random_number, Is.Not.InRange(0, Collection_Count));
+                Assert.That(random_number, Is.Not.InRange(0, Collection_Count - 1));
 
             }
         }
@@ -459,7 +459,7 @@ namespace Collection.Tests
                 Collection_Count++;
                 int insertedValue = nums[random_number];
                 Assert.AreEqual(insertedValue, 25);
-                Assert.That(random_number, Is.InRange(0, Collection_Count));
+                Assert.That(random_number, Is.InRange(0, Collection_Count - 1));
 
             }
         }
