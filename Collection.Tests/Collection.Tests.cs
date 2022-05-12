@@ -204,7 +204,6 @@ namespace Collection.Tests
 
 
         [Test]
-        [TestCase(new int[] { 10, 20, 30, 40, 50 }, TestName = "Count and Capacity - 5 elements + 1 added")]
         [TestCase(new int[] { 10, 20, 30, 40, 50, 60, 70 }, TestName = "Count and Capacity - 7 elements + 1 added")]
         public void Count_and_Capacity(int[] values)
         {
@@ -233,7 +232,6 @@ namespace Collection.Tests
 
         [Test]
         [TestCase(new int[] { 10, 20, 30, 40, 50 }, TestName = "InsertAtStart - 5 elements + 1 added")]
-        [TestCase(new int[] { 10, 20, 30, 40, 50, 60, 70 }, TestName = "InsertAtStart - 7 elements + 1 added")]
         public void InsertAtStart(int[] values)
         {
             Collection<int> nums = new Collection<int>(values);
@@ -247,7 +245,6 @@ namespace Collection.Tests
         }
 
         [Test]
-        [TestCase(new int[] { 10, 20, 30, 40, 50 }, TestName = "InsertAtEnd - 5 elements + 1 added")]
         [TestCase(new int[] { 10, 22, 33, 44, 60, 80, 50 }, TestName = "InsertAtEnd - 7 elements + 1 added")]
         public void InsertAtEnd(int[] values)
         {
@@ -262,7 +259,6 @@ namespace Collection.Tests
         }
 
         [Test]
-        [TestCase(new int[] { 10, 20, 30, 40, 50 }, TestName = "InsertWithGrowAtStart - 5 elements + 3 added")]
         [TestCase(new int[] { 10, 20, 30, 40, 50, 60, 70 }, TestName = "InsertWithGrowAtStart - 7 elements + 3 added")]
         public void InsertWithGrowAtStart(int[] values)
         {
@@ -280,8 +276,7 @@ namespace Collection.Tests
 
 
         [Test]
-        [TestCase(new int[] { 10, 20, 30, 40, 50 }, TestName = "InsertWithGrowAtEnd - 5 elements + 3 added")]
-        [TestCase(new int[] { 10, 20, 30, 40, 50, 60, 70 }, TestName = "InsertWithGrowAtEnd - 7 elements + 3 added")]
+         [TestCase(new int[] { 10, 20, 30, 40, 50, 60, 70 }, TestName = "InsertWithGrowAtEnd - 7 elements + 3 added")]
         public void InsertWithGrowAtEnd(int[] values)
         {
             Collection<int> nums = new Collection<int>(values);
@@ -295,7 +290,6 @@ namespace Collection.Tests
         }
 
         [Test]
-        [TestCase(new int[] { 10, 20, 30, 40, 50, 60 }, TestName = "InsertWithGrowAtMiddle - 6 elements")]
         [TestCase(new int[] { 10, 20, 30, 40, 50, 60, 70 }, TestName = "InsertWithGrowAtMiddle - 7 elements")]
         public void InsertWithGrowAtMiddle(int[] values)
         {
@@ -333,7 +327,6 @@ namespace Collection.Tests
         }
 
         [Test]
-        [TestCase(new int[] { 10, 20, 30, 40, 50 }, TestName = "Clear 5 elements ")]
         [TestCase(new int[] { }, TestName = "Clear-all")]
         public void Test_Collections_Clear(int[] values)
         {
@@ -344,7 +337,6 @@ namespace Collection.Tests
         }
 
         [Test]
-        [TestCase(new int[] { 10, 20, 30, 40, 50 }, TestName = "Exchange_First_Last - 5 elements - 1 removed")]
         [TestCase(new int[] { 10, 20, 30, 40, 60, 70, 50 }, TestName = "Exchange_First_Last - 7 elements - 1 removed")]
         public void Exchange_First_Last(int[] values)
         {
@@ -359,7 +351,6 @@ namespace Collection.Tests
         }
 
         [Test]
-        [TestCase(new int[] { 10, 20, 30, 40, 50, 60 }, TestName = "ExchangedMiddleFirst - 6 elements")]
         [TestCase(new int[] { 10, 20, 30, 40, 50, 60, 70 }, TestName = "ExchangedMiddleFirst - 7 elements")]
         public void ExcganedMiddleFirst(int[] values)
         {
@@ -396,7 +387,6 @@ namespace Collection.Tests
 
 
         [Test]
-        [TestCase(new int[] { 10, 20, 30, 40, 50 }, TestName = "GetElementByIndex - 5 elements - 1 removed")]
         [TestCase(new int[] { 10, 20, 30, 40, 50, 60, 70 }, TestName = "GetElementByIndex - 7 elements - 1 removed")]
         public void GetElementByIndex(int[] values)
         {
@@ -413,7 +403,6 @@ namespace Collection.Tests
         }
 
         [Test]
-        [TestCase(new int[] { 10, 20, 30, 40, 50 }, TestName = "GetElementByInvalidIndex - 5 elements - 1 removed")]
         [TestCase(new int[] { 10, 20, 30, 40, 50, 60, 70 }, TestName = "GetElementByInvalidIndex - 7 elements - 1 removed")]
         public void GetElementByInvalidIndex(int[] values)
         {
@@ -434,7 +423,6 @@ namespace Collection.Tests
         }
 
         [Test]
-        [TestCase(new int[] { 10, 20, 30, 40, 50 }, TestName = "InsertAtInvalidIndex - 5 elements - 1 removed")]
         [TestCase(new int[] { 10, 20, 30, 40, 50, 60, 70 }, TestName = "InsertAtInvalidIndex - 7 elements - 1 removed")]
         public void InsertAtInvalidIndex(int[] values)
         {
@@ -453,7 +441,7 @@ namespace Collection.Tests
 
             }
 
-            else 
+            else
             {
                 nums.InsertAt(random_number, 25);
                 Collection_Count++;
@@ -462,6 +450,14 @@ namespace Collection.Tests
                 Assert.That(random_number, Is.InRange(0, Collection_Count - 1));
 
             }
+        }
+        [Test]
+        public void Test_Collection_Set_WithIndex()
+        {
+            var Collection = new Collection<int>(1,2,3);
+            Collection[2] = 4;
+
+            Assert.AreEqual(4, Collection[2]);
         }
     }
 }
